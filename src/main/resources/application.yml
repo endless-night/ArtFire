@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: pro
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  config-location: classpath:mybatis-config.xml
+
+
+server:
+  port: 80

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace= "artfire.dao.mapper.SocketMapper" >
+
+    <insert id = "save_info">
+      insert into ach_wifi_data_01(alcoSet,voiceSet,flameTemSet,intankTemSet,volumeSet,wifiSet,leakDetecSet,
+      systemState,unsafeTypes,substrateTem,flameTem,intankTem,alcoConcent,alcoAllowance,alcoInject,alcoPump,
+      fan,firstLevel,secondLevel,alcoMargin,leakMonitor1,leakMonitor2,ParityBit,IPAddress,addtime,achId)
+      values (#{alcoSet},#{voiceSet},#{flameTemSet},#{intankTemSet},#{volumeSet},#{wifiSet},#{leakDetecSet},
+      #{systemState},#{unsafeTypes},#{substraTetem},#{flameTem},#{intankTem},#{alcoConcent},#{alcoAllowance},#{alcoInject},#{alcoPump},
+      #{fan},#{firstLevel},#{secondLevel},#{alcoMargin},#{leakMonitor1},#{leakMonitor2},#{parityBit},#{ipAddress},#{addtime},#{achId})
+    </insert>
+
+    <!--<insert id = "save_info">-->
+      <!--insert into ach_wifi_data_01(id,alcoSet,voiceSet,flameTemSet,intankTemSet,volumeSet,wifiSet,leakDetecSet,-->
+      <!--systemState,unsafeTypes,substrateTem,flameTem,intankTem,alcoConcent,alcoAllowance,alcoInject,alcoPump,-->
+      <!--fan,firstLevel,secondLevel,alcoMargin,leakMonitor1,leakMonitor2,ParityBit,IPAddress,addtime,achId)-->
+      <!--values (#{id},#{alcoSet},#{voiceSet},#{flameTemSet},#{intankTemSet},#{volumeSet},#{wifiSet},#{leakDetecSet},-->
+      <!--#{systemState},#{unsafeTypes},#{substraTetem},#{flameTem},#{intankTem},#{alcoConcent},#{alcoAllowance},#{alcoInject},#{alcoPump},-->
+      <!--#{fan},#{firstLevel},#{secondLevel},#{alcoMargin},#{leakMonitor1},#{leakMonitor2},#{parityBit},#{ipAddress},#{addtime},#{achId})-->
+    <!--</insert>-->
+
+    <select id="research_info" resultType="artfire.entity.SocketReceive">
+        select * from ach_wifi_data_01
+        where id = #{id};
+    </select>
+
+    <select id="research_info_List" resultType="artfire.entity.SocketReceive">
+        SELECT * FROM ach_wifi_data_01 order by id DESC limit 7;
+    </select>
+
+    <resultMap id="showrepair" type="artfire.entity.Repair">
+        <id property="ID" column="id"/>
+        <result property="ach_ID" column="achId"/>
+        <result property="alert_ID" column="alertId"/>
+        <result property="alert_time" column="alert_time"/>
+        <result property="alert_infor" column="alert_infor"/>
+    </resultMap>
+
+    <select id="show_repair" resultMap="showrepair">
+        select * from ach_repair
+        where ID = #{ID};
+    </select>
+
+
+</mapper>

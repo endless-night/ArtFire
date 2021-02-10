@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/artfire?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=UTC
+    username: root
+    password: ZXCVBNM
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  thymeleaf:
+    mode: HTML
+
+logging:
+  level:
+    root: warn
+    artfire.service: info
+  file:
+    name: log/ArtFire-Pro.log
+#name与path一起时只有name生效
+
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace= "artfire.dao.mapper.RepairMapper" >   <!--airfire.dao.mapper.UserMapper为接口名称-->
+    <!--<resultMap id ="UserMap" type="com.example.springboot.mybatisxml.entity.User">-->
+    <!--<result column="id" property="id"/>-->
+    <!--<result column="name" property="name"/>-->
+    <!--<result column="sex" property="sex"/>-->
+    <!--<result column="password" property="password"/>-->
+    <!--<result column="des" property="des"/>-->
+    <!--</resultMap>-->
+
+    <select id = "save_infor" resultType= "int">
+      select * from user
+        where username = #{username} and password = #{password};
+    </select>
+
+
+</mapper>
